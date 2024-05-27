@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style4.css' %}">
+
+</head>
+{% if category_x.id != 2 %}
+    <body>
+        {% for item in business %}
+            <div id="header">
+                <h1>{{item.category.name}}</h1>
+                <p>{{item.speciality}}</p>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="card-image">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </body>
+{% endif %}
+
+</html>

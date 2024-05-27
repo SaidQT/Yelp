@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yelp homepage</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div>
+            <a href="/login"> Login / SignUp</a>
+        </div>
+    </header>
+    <div class="slider">
+
+
+        <div class="list">
+            {%for category in categories%}
+            <div class="item">
+                <img src="{{ category.image_url }}" alt="{{category.name}}" />
+
+                <div class="content">
+                    <div class="title"></div>
+                    <div class="type">{{category.name}}</div><!-- take int from database-->
+                    <div class="description">
+                        <!--take it from data base  -->
+                    </div>
+                    <div class="button">
+                        <button><a href="category/{{category.id}}">SEE MORE</a></button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="thumbnail">
+            {%for category in categories%}
+            <div class="item">
+                <img src="{{category.image_url}}" alt="{{category.name}}">
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+
+        <div class="nextPrevArrows">
+            <button class="prev">
+                < </button>
+                    <button class="next"> > </button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>
