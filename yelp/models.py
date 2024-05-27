@@ -89,6 +89,12 @@ class Location (models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     objects=LocationManager()
+    
+class Speciality (models.Model):
+    name=models.CharField(max_length=45)
+    image_url=models.TextField()
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
 
     
 class BusinessDetail(models.Model):
