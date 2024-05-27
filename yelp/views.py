@@ -46,12 +46,10 @@ def log(request):
 def show(request,id):
     category_x=BusinessCategory.objects.get(id=id)
     data={
-        "business":BusinessDetail.objects.filter(category=category_x)
+        "speciality":Speciality.objects.filter(category=category_x)
     }
-    if category_x.id == 2 :
-        return render(request,'category.html',data)
-    else:
-        return render(request,"others.html")
+    
+    return render(request,"category.html",data)
 
 def reset(request):
     request.session.clear()
