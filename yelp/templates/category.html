@@ -14,15 +14,17 @@
 
 <body style="display:flex; justify-content:space-evenly; background-color:#e5eaf5;">
     {% for item in speciality %}
-        <div class="card" style="height:400px; margin-top:150px;border-color:black;">
-            <img src="{{item.image_url}}" class="card-img-top" alt="..." style="width:300px; height:280px">
-            
-                <div class="card-body" style="background-color:black; color:white">
-                    <h5 class="card-title">{{item.name}}</h5>
-                </div>
-                <a href="/category/{{item.category.id}}/{{item.id}}" style="text-align:center;background-color:black; color:white">See more</a>
-        </div>
+
+                <a href="/category/{{item.category.id}}/{{item.id}}" style="text-align:left; text-decoration:none"><div class="card" style="height:400px; margin-top:150px;border-color:black;">
+                    <img src="{{item.image_url}}" class="card-img-top" alt="..." style="width:300px; height:280px">
+                    
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                        </div>
+                    </div></a>
     {% endfor%}
 </body>
 
 </html>
+<!-- background-color:black; color:white -->
+<!-- style="background-color:black; color:white" -->
