@@ -93,6 +93,7 @@ class Location (models.Model):
 class Speciality (models.Model):
     name=models.CharField(max_length=45)
     image_url=models.TextField()
+    category=models.ForeignKey(BusinessCategory,related_name="speciality",on_delete=models.CASCADE, null=True )
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
