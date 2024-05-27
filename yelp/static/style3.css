@@ -1,4 +1,4 @@
-body{
+body {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -6,9 +6,44 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #14ff72cb, white);
+	background: linear-gradient(to bottom, rgb(120, 120, 120), black, rgb(128, 127, 127));
 }
-.main{
+
+header {
+     
+     font-size: x-large;
+     width: 1140px;
+     width: 100%;
+     height: 50px;
+     display: flex;
+     align-items: center;
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     transition: 0.5s;
+}
+
+
+header a {
+     color: black;
+     margin-right: 5px;
+     padding: 5px 10px;
+     transition: 0.2s;
+	text-decoration : none;
+}
+
+a.active {
+     background: black;
+     border-radius: 2px;
+}
+
+header a:hover {
+     background: whitesmoke;
+     border-radius: 5px;
+}
+
+
+.main {
 	width: 450px;
 	height: 600px;
 	background: red;
@@ -17,15 +52,18 @@ body{
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
-#chk{
+
+#chk {
 	display: none;
 }
-.signup{
+
+.signup {
 	position: relative;
-	width:100%;
+	width: 100%;
 	height: 100%;
 }
-label{
+
+label {
 	color: #fff;
 	font-size: 2.3em;
 	justify-content: center;
@@ -35,7 +73,8 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-input{
+
+input {
 	width: 60%;
 	height: 10px;
 	background: #e0dede;
@@ -47,14 +86,15 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-button{
+
+button {
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
 	justify-content: center;
 	display: block;
-	color: #fff;
-	background: #14ff72cb;
+	color: black;
+	background: #ECECEC;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 30px;
@@ -64,32 +104,39 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-button:hover{
-	background:#14ff72cb
+
+button:hover {
+	background: black;
+	color: #ECECEC;
 }
-.login{
+
+.login {
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
-.login label{
-	color: #14ff72cb;
+
+.login label {
+	color: #070614;
 	transform: scale(.6);
 }
 
-#chk:checked ~ .login{
+#chk:checked~.login {
 	transform: translateY(-500px);
 }
-#chk:checked ~ .login label{
-	transform: scale(1);	
+
+#chk:checked~.login label {
+	transform: scale(1);
 }
-#chk:checked ~ .signup label{
+
+#chk:checked~.signup label {
 	transform: scale(.6);
 }
-.msg{
-    height: 10px;
-    font-size: smaller;
-    color: #14ff72cb
+
+.msg {
+	height: 10px;
+	font-size: smaller;
+	color: #ECECEC
 }

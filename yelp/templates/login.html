@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Slide Navbar</title>
-    {%load static%}
+	{%load static%}
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
-    <link rel="stylesheet" href="{% static 'style3.css' %}">
+	<link rel="stylesheet" href="{% static 'style3.css' %}">
 </head>
-<body>
-	<div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
 
+<body>
+	<div>
+
+		<header>
+			<nav id="navbar">
+				<a href="#">Home</a>
+				<a href="#">About</a>
+				<a href="#">Services</a>
+				<a href="#">Contact</a>
+			</nav>
+			
+		</header>
+		
+		<div class="main">
+			<input type="checkbox" id="chk" aria-hidden="true">
+			
 			<div class="signup">
 				<form action='process' method='post'>
-                    {% csrf_token %}
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="first_name" placeholder="First Name" required="">
-                    <input type="text" name="last_name" placeholder="Last Name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="password" placeholder="Password" required="">
-                    <input type="password" name="confirm_password" placeholder="Confirm Password" required="">
-					<button>Sign up</button>
-				</form>
-                {% for message in messages %}
-                    {% if 'fail' in message.tags %}
-                        <div class='msg'>{{ message }}</div>
-                    {% endif %}
-                {% endfor %}
-			</div>
-
-			<div class="login">
-				<form action='process2' method='post'>
-                    {% csrf_token %}
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="password" placeholder="Password" required="">
-					<button>Login</button>
-				</form>
-                {% for message in messages %}
-                    {% if 'login' in message.tags %}
-                        <div class='msg'>{{ message }}</div>
-                    {% endif %}
-                {% endfor %}
-			</div>
+					{% csrf_token %}
+				<label for="chk" aria-hidden="true">Sign up</label>
+				<input type="text" name="first_name" placeholder="First Name" required="">
+				<input type="text" name="last_name" placeholder="Last Name" required="">
+				<input type="email" name="email" placeholder="Email" required="">
+				<input type="password" name="password" placeholder="Password" required="">
+				<input type="password" name="confirm_password" placeholder="Confirm Password" required="">
+				<button>Sign up</button>
+			</form>
+			{% for message in messages %}
+			{% if 'fail' in message.tags %}
+			<div class='msg'>{{ message }}</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+		
+		<div class="login">
+			<form action='process2' method='post'>
+				{% csrf_token %}
+				<label for="chk" aria-hidden="true">Login</label>
+				<input type="email" name="email" placeholder="Email" required="">
+				<input type="password" name="password" placeholder="Password" required="">
+				<button>Login</button>
+			</form>
+			{% for message in messages %}
+			{% if 'login' in message.tags %}
+			<div class='msg'>{{ message }}</div>
+			{% endif %}
+			{% endfor %}
+		</div>
 	</div>
+</div>
 </body>
+
 </html>
