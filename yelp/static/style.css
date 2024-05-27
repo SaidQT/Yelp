@@ -2,7 +2,7 @@
 
 body {
      margin: 0;
-     background-color: #000;
+     background-color: white;
      color: #eee;
      font-family: 'Times New Roman', Times, serif;
      font-size: medium;
@@ -13,7 +13,7 @@ a {
 }
 
 header {
-     font-size: medium;
+     font-size: x-large;
      width: 1140px;
      max-width: 80%;
      margin: auto;
@@ -26,11 +26,12 @@ header {
 
 header div a {
      color: black;
-     font-size: medium;
+     font-size: x-large;
      border-radius: 8px;
      padding: 5px 10px;
      transition: 0.2s;
 }
+
 header a {
      color: black;
      margin-right: 5px;
@@ -39,12 +40,12 @@ header a {
 }
 
 a.active {
-     background: #14ff72cb;
+     background: black;
      border-radius: 2px;
 }
 
 header a:hover {
-     background: #14ff72cb;
+     background: whitesmoke;
      border-radius: 2px;
 }
 
@@ -93,7 +94,7 @@ header a:hover {
 }
 
 .slider .list .item .type {
-     color: #14ff72cb;
+     color: black;
 }
 
 .slider .list .item .button {
@@ -173,7 +174,7 @@ header a:hover {
      width: 40px;
      height: 40px;
      border-radius: 50%;
-     background-color: #14ff72cb;
+     background-color: black;
      border: none;
      color: #fff;
      font-family: monospace;
@@ -340,3 +341,70 @@ header a:hover {
           font-size: 50px;
      }
 }
+
+
+
+#mostrecent {
+     color: #000;
+     text-align: center;
+     font-size: x-large;
+}
+
+.page2 {
+
+     background-color: white;
+     display: flex;
+     /* justify-content: start; */
+     flex-wrap: wrap;
+     /* align-items: center; */
+     /* margin: 0;  */
+     width: 100%;
+     height: 100vh;
+}
+
+.card {
+     width: 250px;
+     background: white;
+     padding: .7em;
+     border-radius: 6px;
+     border: 1px gray solid;
+     height: 250px;
+     margin: 13px;
+}
+
+.card-image {
+     background-color: rgb(236, 236, 236);
+     width: 100%;
+     height: 130px;
+     border-radius: 6px 6px 0 0;
+}
+
+.card-image:hover {
+     transform: scale(0.98);
+}
+
+.category {
+     text-transform: uppercase;
+     font-size: 0.7em;
+     font-weight: 600;
+     color: rgb(63, 121, 230);
+     padding: 10px 7px 0;
+}
+
+
+.des {
+     font-weight: 600;
+     color: rgb(88, 87, 87);
+     padding: 7px;
+}
+
+
+
+.user {
+     color: gray;
+     font-weight: 400;
+     font-size: 11px;
+     padding-top: 20px;
+}
+
+
