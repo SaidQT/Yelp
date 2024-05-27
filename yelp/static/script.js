@@ -43,3 +43,12 @@ function moveSlider(direction) {
           }
      }, { once: true }) // Remove the event listener after it's triggered once
 }
+
+window.addEventListener('scroll', function () {
+     var header = document.querySelector('header');
+     if (window.scrollY > 500) { 
+          header.classList.add('scrolled');
+     } else {
+          header.classList.remove('scrolled');
+     }
+});
