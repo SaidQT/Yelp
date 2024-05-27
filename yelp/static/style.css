@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 
 body {
      margin: 0;
-     /* background-color: #000; */
-     color: #eee;
      background-color: #000;
-     font-family: Poppins;
-     font-size: 23px;
+     color: #eee;
+     font-family: 'Times New Roman', Times, serif;
+     font-size: medium;
 }
 
 a {
@@ -14,18 +13,15 @@ a {
 }
 
 header {
-
-     max-width: 100%;
-     padding: 10px;
+     font-size: medium;
+     width: 1140px;
+     max-width: 80%;
+     margin: auto;
      height: 50px;
      display: flex;
-     box-shadow: 4px 4px 8px #ff7e14cb;
      align-items: center;
-     background: linear-gradient(to top, white, #de703c);
-     overflow: hidden;
      position: relative;
-     align-items: center;
-     justify-content: space-around;
+     z-index: 100;
 }
 
 header div a {
@@ -35,37 +31,30 @@ header div a {
      padding: 5px 10px;
      transition: 0.2s;
 }
-
-header nav a {
+header a {
      color: black;
      margin-right: 5px;
      padding: 5px 10px;
      transition: 0.2s;
-     font-size: medium;
 }
 
-
-
-header nav a:hover {
-     background: #ff7e14cb;
+a.active {
+     background: #14ff72cb;
      border-radius: 2px;
-     border-radius: 30px;
 }
 
-header div a:hover {
-     background: #ff7e14cb;
+header a:hover {
+     background: #14ff72cb;
      border-radius: 2px;
-     border-radius: 30px;
-     padding: 5px 10px;
 }
+
 
 /* slider section  */
 
 .slider {
-     height: 92.5vh;
-
-     width: 100%;
-     margin: auto;
+     height: 100vh;
+     margin-top: -50px;
+     width: 100vw;
      overflow: hidden;
      position: relative;
 }
@@ -104,7 +93,7 @@ header div a:hover {
 }
 
 .slider .list .item .type {
-     color: lightsalmon;
+     color: #14ff72cb;
 }
 
 .slider .list .item .button {
@@ -117,14 +106,12 @@ header div a:hover {
 
 .slider .list .item .button button {
      border: none;
-     background-color: lightsalmon;
-     border-radius: 20px;
+     background-color: #eee;
      font-family: Poppins;
      font-weight: 500;
      cursor: pointer;
      transition: 0.4s;
      letter-spacing: 2px;
-     color: white;
 }
 
 
@@ -137,6 +124,10 @@ header div a:hover {
      border: 1px solid #fff;
      color: #eee;
 }
+
+
+
+
 
 /* Thumbnail Section  */
 .thumbnail {
@@ -182,7 +173,7 @@ header div a:hover {
      width: 40px;
      height: 40px;
      border-radius: 50%;
-     background-color: lightsalmon;
+     background-color: #14ff72cb;
      border: none;
      color: #fff;
      font-family: monospace;
