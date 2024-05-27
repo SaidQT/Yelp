@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Business</title>
 </head>
 <body>
-    
+    <div class="container cards">
+        {% for item in business %}
+            <div class="card" style="width: 250px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <h5>{{item.phone}}</h5>
+                    <h5>{{item.phone}}</h5>
+                </div>
+            </div>
+                <a href="#" class="text-decoration-none">
+                    Post a Review!
+                </a>
+        {% endfor %}
+
 </body>
 </html>

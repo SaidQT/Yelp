@@ -53,12 +53,14 @@ def show(request,id):
 
 
 def show2(request,x,y):
-    category_x=BusinessCategory.objects.get(id=x)
+    speaciality_x=Speciality.objects.get(id=y)
     data={
-        
-        "speciality":Speciality.objects.filter(id=y)
+        "category_x":BusinessCategory.objects.get(id=x),
+        "business":BusinessDetail.objects.filter(speciality=speaciality_x),
     }
     return render(request,"business.html",data)
+
+
 def reset(request):
     request.session.clear()
     return redirect("/")
