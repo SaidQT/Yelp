@@ -97,4 +97,3 @@ def services(request):
 def reset(request):
     request.session.clear()
     return redirect("/")
-
