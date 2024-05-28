@@ -53,13 +53,14 @@
             {%for review in reviews%}
                 <section class="l-card__text">
                     <h4>{{review.user.first_name}} {{review.user.last_name}} - {{review.updated_at}}</h4>
+                        <h4><em>Rating: <span class="rate">{{review.rating}}</em></span></h4>
                     
                     <p>
                         {{review.content}}
                     </p>
                     {%for comment in review.comments.all%}
-                        <h6>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.updated_at}}</h6>
-                        <h6>{{comment.content}}</h6>
+                        <h5>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.updated_at}}</h5>
+                        <h5>{{comment.content}}</h5>
                         
                     {%endfor%}
                 </section>
