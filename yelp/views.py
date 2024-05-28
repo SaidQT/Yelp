@@ -67,7 +67,7 @@ def review (request,a,b,c):
     data={
         "category1":BusinessCategory.objects.get(id=a),
         "spec":Speciality.objects.get(id=b),
-        "reviews":Review.objects.filter(detail=business),
+        "review":Review.objects.filter(detail=business),
     }
     if 'userid' in request.session:
         return render(request,"wall.html", data)
@@ -94,11 +94,6 @@ def about(request):
 def services(request):
     return render(request,'services.html')
 
-
-
-
-
 def reset(request):
     request.session.clear()
     return redirect("/")
-
