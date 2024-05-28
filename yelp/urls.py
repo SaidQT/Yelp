@@ -7,8 +7,9 @@ urlpatterns = [
     path('process2', views.login),
     path('login', views.log),
     path('category/<int:id>', views.show),
-    path('delete', views.reset),
+    path('logoff', views.reset),
     path('category/<int:x>/<int:y>', views.show2),
     path('category/<int:a>/<int:b>/<int:c>', views.review),
     path('process3', views.create_review),
+    path("contact", views.contact),
 ]

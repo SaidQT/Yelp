@@ -84,6 +84,9 @@ def create_review(request):
         return redirect('/')
     else:
         return redirect('/login')
+
+def contact(request):
+    return render(request,"contact_us.html")
     
 def reset(request):
     request.session.clear()

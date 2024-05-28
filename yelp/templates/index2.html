@@ -14,13 +14,17 @@
 
     <header>
         <nav id="navbar">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             <a href="#">About</a>
             <a href="#">Services</a>
-            <a href="#">Contact Us</a>
+            <a href="/contact">Contact Us</a>
         </nav>
         <div>
-            <a href="/login"> Login / SignUp</a>
+            {% if 'userid' in request.session%}
+                <a href="/logoff"> Logoff </a>
+            {%else%}
+                <a href='/login'>Login/Signup</a>
+            {%endif%}
         </div>
     </header>
 
@@ -183,7 +187,7 @@
             <h4>company</h4>
             <div class="links">
                 <a href="#">Services</a>
-                <a href="#">Contact Us</a>
+                <a href="/contact">Contact Us</a>
             </div>
         </div>
         <div class="footer-col">
