@@ -12,19 +12,21 @@ body {
 
 .card{
 
-    width: 400px;
+    width: 290px;
     margin: 0 auto;
-    margin-bottom: 10px;
-    margin-top: 130px;
+    padding: 0;
+    margin-bottom: -206px;
+    margin-top: 100px;
 }
 .card-body{
     background-color: #e1e1e1;
+    height: 450px;
 }
 div h5{
     color: black;
+    margin-top: 40px;
 }
 .container_cards{
-    margin-top: 130px;
     display: flex;
     justify-content: center;
 
@@ -62,4 +64,9 @@ button{
 }
 button a{
     color: white;
+}
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
 }

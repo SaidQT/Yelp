@@ -20,6 +20,7 @@
         {% for item in business %}
             <div class="card" >
                 <div class="card-body">
+                    <img src="{{item.image_url}}" alt="">
                     <h5 >{{ item.name }}</h5>
                     <h5>Phone: {{item.phone}}</h5>
                     <button><a href="#" class="text-decoration-none">Post a Review!</a></button>
