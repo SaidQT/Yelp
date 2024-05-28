@@ -69,112 +69,21 @@
     </div>
 
     <h3 id="mostrecent"> Most recnt </h3>
+    
     <div class="page2">
-        <div class="card">
+        {% for review in reviews %}
+            <div class="card">
             <div class="card-image">
                 <img src="" alt="batata">
             </div>
             <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
+            <div class="des"> <p>{{review.content}}</p>
                 <div class="user"> By </span> 4 days ago</div>
             </div>
+        
         </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
+        {% endfor %}
+        
 
 
 
