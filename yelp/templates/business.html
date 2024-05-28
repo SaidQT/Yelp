@@ -38,12 +38,14 @@
                     <img src="/static/images/{{ item.image_url }}" alt="">
                     {%endif%}
 
-
-                    <h5>{{ item.name }}</h5>
-                    <h5>Phone: {{item.phone}}</h5>
-                    <button class="butt"><a
-                            href="/category/{{item.speciality.category.id}}/{{item.speciality.id}}/{{item.id}}"
-                            class="text-decoration-none">Post a Review!</a></button>
+                    <div class="text">
+                        <h5>{{ item.name }}</h5>
+                        <h5>Phone: {{item.phone}}</h5>
+                        <button class="butt"><a
+                                href="/category/{{item.speciality.category.id}}/{{item.speciality.id}}/{{item.id}}"
+                                class="text-decoration-none">Post a Review!</a></button>
+                    </div>
+                    
                 </div>
             </div>
             {% endfor %}
