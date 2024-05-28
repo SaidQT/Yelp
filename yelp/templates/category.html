@@ -28,14 +28,14 @@
 
     <div class="container cards">
         {% for item in speciality %}
-        <a href="/category/{{ item.category.id }}/{{ item.id }}" class="text-decoration-none">
-            <div class="card" style="width: 250px;">
-                <img src="{{ item.image_url }}" alt="..." class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">{{ item.name }}</h5>
+            <a href="/category/{{ item.category.id }}/{{ item.id }}" class="text-decoration-none">
+                <div class="card" style="width: 250px;">
+                    <img src="/static/images/{{ item.image_url }}" alt="..." class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
         {% endfor %}
     </div>
     <footer>

@@ -62,27 +62,37 @@ def show2(request,x,y):
     return render(request,"business.html",data)
 
 
-def review (request,a,b,c):
-    business=BusinessDetail.objects.get(id=c)
-    request.session['bus']=business.id
-    data={
-        "category1":BusinessCategory.objects.get(id=a),
-        "spec":Speciality.objects.get(id=b),
-        "review":Review.objects.filter(detail=business),
+def review(request, a, b, c):
+    business = BusinessDetail.objects.get(id=c)
+    request.session['bus'] = business.id
+   
+    data = {
+        "category1": BusinessCategory.objects.get(id=a),
+        "spec": Speciality.objects.get(id=b),
+        "reviews": Review.objects.filter(detail=business).order_by("-updated_at"),
     }
+    request.session['a'] = a
+    request.session['b'] = b
+    request.session['c'] = c
     if 'userid' in request.session:
-        return render(request,"wall.html", data)
+        return render(request, "wall.html", data)
     return redirect(f"/category/{a}/{b}")
 
 def create_review(request):
     if request.method == "POST" and 'userid' in request.session:
+        user = User.objects.get(id=request.session['userid'])
+        business = BusinessDetail.objects.get(id=request.session['bus'])
+        a = request.session['a']
+        b = request.session['b']
+        c = request.session['c']
+        
         Review.objects.create(
-            user=User.objects.get(id=request.session['userid']),
-            detail=BusinessDetail.objects.get(id=request.session['bus']),
+            user=user,
+            detail=business,
             content=request.POST['review'],
             rating=request.POST['rating'],
         )
-        return redirect('/')
+        return redirect(f'/category/{a}/{b}/{c}')
     else:
         return redirect('/login')
 
@@ -102,7 +112,10 @@ def comment(request,k):
             user=User.objects.get(id=request.session['userid']),
             review=Review.objects.get(id=k),
         )
-        return redirect('/')
+        a = request.session['a']
+        b = request.session['b']
+        c = request.session['c']
+        return redirect(f'/category/{a}/{b}/{c}')
     
 
 def reset(request):
