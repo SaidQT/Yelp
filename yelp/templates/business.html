@@ -25,10 +25,16 @@
         {% for item in business %}
             <div class="card" >
                 <div class="card-body">
-                    <img src="{{item.image_url}}" alt="">
+                    {%if not item.image_url%}
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWsvceHkiTX5lSfjxr0hs43QXdJ9S2_Fg06nvqF8wxMw&s" alt="">
+                    {%else%}
+                        <img src="{{item.image_url}}" alt="">
+                    {%endif%}
+                    
+                    
                     <h5 >{{ item.name }}</h5>
                     <h5>Phone: {{item.phone}}</h5>
-                    <button><a href="/category/{{item.speciality.category.id}}/{{item.speciality.id}}/{{item.id}}" class="text-decoration-none">Post a Review!</a></button>
+                    <button class="butt"><a href="/category/{{item.speciality.category.id}}/{{item.speciality.id}}/{{item.id}}" class="text-decoration-none">Post a Review!</a></button>
                 </div>
             </div>
         {% endfor %}
