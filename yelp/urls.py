@@ -9,5 +9,4 @@ urlpatterns = [
     path('category/<int:id>', views.show),
     path('delete', views.reset),
     path('category/<int:x>/<int:y>', views.show2),
-    path('services', views.services),
 ]
