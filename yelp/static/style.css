@@ -395,7 +395,9 @@ header a:hover {
      height: 130px;
      border-radius: 6px 6px 0 0;
 }
-
+.card-image img{
+     width:120px;
+}
 .card-image:hover {
      transform: scale(0.98);
 }

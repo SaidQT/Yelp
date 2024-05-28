@@ -70,114 +70,19 @@
 
     <h3 id="mostrecent"> Most recnt </h3>
     <div class="page2">
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
+        {% for review in reviews %}
+        {% if forloop.counter <= 10 %}
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://authorservices.taylorandfrancis.com/wp-content/uploads/2023/06/Icon_peer_review-1170x1170.png" alt="batata">
+                </div>
+                <div class="category"> {{ review.detail.name }} </div>
+                <div class="des"> {{ review.content }}
+                    <div class="user"> By {{ review.user.first_name }} {{ review.user.last_name }} {{ review.updated_at }}</div>
+                </div>
             </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
-            </div>
-            <div class="category"> buss name </div>
-            <div class="des"> A descritption about each buss
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        </div>
-
-
-
+        {% endif %}
+        {% endfor %}
     </div>
     <div class="cta-card">
         <img src="https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE=" alt="Our Team" class="cta-image">
