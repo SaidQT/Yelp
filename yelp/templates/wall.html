@@ -9,17 +9,21 @@
 </head>
 <body>
     
-        <nav>
+    <header>
+        <nav id="navbar">
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/services">Services</a>
             <a href="/contact">Contact Us</a>
-            {% if 'userid' in request.session%}
-                <a href="/logoff"> Logoff </a>
-            {%else%}
-                <a href='/login'>Login/Signup</a>
-            {%endif%}
         </nav>
+        <div>
+            {% if 'userid' in request.session%}
+            <a href="/logoff"> Logoff </a>
+            {%else%}
+            <a href='/login'>Login/Signup</a>
+            {%endif%}
+        </div>
+    </header>
 
         <div class="container">
         <!-- textarea messages -->
@@ -85,6 +89,26 @@
             </div>
         </div>
     </div>
+    </div>
+    <footer>
+
+    
+        <div class="footer-col">
+            <h4>company</h4>
+            <div class="links">
+                <a href="/services">Services</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="links">
+                <a href="#">Facebook</a>
+                <a href="#">github</a>
+            </div>
+        </div>
+        </footer>
+
 <script src="{% static 'script.js' %}"></script>
 
 </body>
