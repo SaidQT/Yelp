@@ -17,6 +17,7 @@
 .card {
     background-color: whitesmoke;
     transition: 0.4s;
+    height: 100vh;
 
 }
 

@@ -76,7 +76,7 @@ header {
      transition: 0.5s;
      border-bottom-left-radius: 15px;
      border-bottom-right-radius: 15px;
-
+     align-items: center;
      box-shadow: 5px 4px 3px rgb(252, 252, 252);
      padding: 20px;
      font-weight: lighter;

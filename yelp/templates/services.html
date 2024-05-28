@@ -8,6 +8,21 @@
     <title>Services Page</title>
 </head>
 <body>
+    <header>
+        <nav id="navbar">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact Us</a>
+        </nav>
+        <div>
+            {% if 'userid' in request.session%}
+            <a href="/logoff"> Logoff </a>
+            {%else%}
+            <a href='/login'>Login/Signup</a>
+            {%endif%}
+        </div>
+    </header>
 
     <div class="main"></div>
 
@@ -48,6 +63,24 @@
         </div>
 
     </div>
+    <footer>
+
+    </div>
+    <div class="footer-col">
+        <h4>company</h4>
+        <div class="links">
+            <a href="#">Services</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+    </div>
+    <div class="footer-col">
+        <h4>follow us</h4>
+        <div class="links">
+            <a href="#">Facebook</a>
+            <a href="#">github</a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
