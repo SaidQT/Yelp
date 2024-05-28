@@ -72,16 +72,19 @@
     
     <div class="page2">
         {% for review in reviews %}
+        {% if forloop.counter <= 10 %}
             <div class="card">
-            <div class="card-image">
-                <img src="" alt="batata">
+                <div class="card-image">
+                    <img src="https://authorservices.taylorandfrancis.com/wp-content/uploads/2023/06/Icon_peer_review-1170x1170.png" alt="batata">
+                </div>
+                <div class="category"> {{ review.detail.name }} </div>
+                <div class="des"> <p>{{ review.content }}</p>
+                    <div class="user"> By {{ review.user.first_name }} {{ review.user.last_name }} {{ review.updated_at }}</div>
+                </div>
             </div>
-            <div class="category"> buss name </div>
-            <div class="des"> <p>{{review.content}}</p>
-                <div class="user"> By </span> 4 days ago</div>
-            </div>
-        
-        </div>
+        {% endif %}
+    {% endfor %}
+    
         {% endfor %}
         
 
