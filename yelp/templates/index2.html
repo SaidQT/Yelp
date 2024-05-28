@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yelp homepage</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Yelp homepage</title>
+    {% load static %}	
+
+    <link rel="stylesheet" type="text/css" href=" {% static '/css/style.css' %} ">
+
+
 </head>
 
 <body>
@@ -16,7 +18,7 @@
         <nav id="navbar">
             <a href="#">Home</a>
             <a href="#">About</a>
-            <a href="#">Services</a>
+            <a href="/services">Services</a>
             <a href="#">Contact</a>
         </nav>
         <div>

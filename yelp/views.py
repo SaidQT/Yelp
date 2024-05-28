@@ -9,6 +9,10 @@ def index(request):
     }
     return render(request, 'index2.html', context)
 
+
+def services(request):
+    return render(request,"services.html",)
+
 def create(request):
     errors = User.objects.basic_validator(request.POST)
     if len(errors) > 0:
