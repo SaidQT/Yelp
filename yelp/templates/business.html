@@ -11,10 +11,15 @@
 <body>
     <div class="main">
         <nav>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             <a href="#">About</a>
             <a href="#">Services</a>
-            <a href="#">Contact</a>
+            <a href="/contact">Contact</a>
+            {% if 'userid' in request.session%}
+                <a href="/logoff"> Logoff </a>
+            {%else%}
+                <a href='/login'>Login/Signup</a>
+            {%endif%}
         </nav>
         <div class="container_cards">
         {% for item in business %}
