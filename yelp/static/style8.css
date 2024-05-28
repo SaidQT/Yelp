@@ -1,0 +1,102 @@
+/* Reset some basic elements */
+body, html, .message-div, .textarea {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    height: 50px;
+    transition: 0.5s;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    box-shadow: 5px 4px 3px rgb(252, 252, 252);
+    padding: 20px;
+    font-weight: lighter;
+    padding-top: 10px;
+    background: #201d20;
+}
+nav a{
+    text-decoration: none;
+    margin-right: 5px;
+    padding: 5px 10px;
+    transition: 0.2s;
+    color:whitesmoke;
+}
+
+.textarea {
+    text-align: left;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Align stars to the left */
+    font-size: 2rem;
+    unicode-bidi: bidi-override;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f5b301;
+}
+#message{
+    width: 25%;
+    height: 150px;
+}
+
+input[type="submit"]{
+    padding: 5px;
+    margin-top: 10px;
+}
+.container{
+    padding:60px;
+}
+
+.l-card {
+	width: auto;
+	min-width: 360px;
+	max-width: 480px;
+	height: auto;
+	background: #f5f5f5;
+	color: #272727;
+	padding: 50px;
+	box-shadow: 0px 7px 24px rgba(100, 100, 100, 0.4);
+    margin-top: 20px;
+}
+
+.l-card__text p {
+	font-size: 30px;
+	font-family: "Vollkorn", serif;
+	font-weight: 400;
+	color: #3f3f55;
+	text-align: left;
+}
+
+.l-card__text p::after {
+	content: "\201D";
+	display: inline;
+	color: #999;
+}
+
+.l-card__text p::before {
+	content: "\201C";
+	display: inline;
+	color: #999;
+}

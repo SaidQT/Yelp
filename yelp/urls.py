@@ -12,4 +12,8 @@ urlpatterns = [
     path('category/<int:a>/<int:b>/<int:c>', views.review),
     path('process3', views.create_review),
     path("contact", views.contact),
+    path("about", views.about),
+    path("services",views.services),
+    path('comment/<int:k>',views.comment)
+    
 ]

@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'style7.css' %}">
-    <title>Reviews</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Review</title>
+{%load static%}
+<link rel="stylesheet" href="{% static 'style8.css' %}">
 </head>
-
 <body>
-    <div class="container">
+    
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact Us</a>
+            {% if 'userid' in request.session%}
+                <a href="/logoff"> Logoff </a>
+            {%else%}
+                <a href='/login'>Login/Signup</a>
+            {%endif%}
+        </nav>
 
-        <div class="top-row">
-            <div><h2>CodingDojo Wall</h2></div>
-            <div class="logOff">
-                <h3>Welcome, {{user.first}}</h3>
-                <div><a href="/logoff">Log Off</a></div>
-            </div>
-        </div>
-
-        <hr>
-
+        <div class="container">
         <!-- textarea messages -->
         <div class="message-div">
-            <form action="/process3" method="POST">      
+            <form action="/process3" method="POST">
                 {% csrf_token %}
-                    <div class="textarea">
-                        <h2>Post a review</h2>
-                        <textarea name="review" id="message" placeholder="post a review..."></textarea>
-                        <label for "rating">Rating</label>
-                        <input type="number" name="rating" min="1" max="5">
-                        <div class="ended"><input class="button" type="submit" value="Post a message"></div>
+                <div class="textarea">
+                    <h2>Post a review</h2>
+                    <textarea name="review" id="message" placeholder="post a review..."></textarea>
+                    <div class="star-rating">
+                        <input type="radio" name="rating" id="rating-5" value="5">
+                        <label for="rating-5" title="5 stars">&#9733;</label>
+                        <input type="radio" name="rating" id="rating-4" value="4">
+                        <label for="rating-4" title="4 stars">&#9733;</label>
+                        <input type="radio" name="rating" id="rating-3" value="3">
+                        <label for="rating-3" title="3 stars">&#9733;</label>
+                        <input type="radio" name="rating" id="rating-2" value="2">
+                        <label for="rating-2" title="2 stars">&#9733;</label>
+                        <input type="radio" name="rating" id="rating-1" value="1">
+                        <label for="rating-1" title="1 star">&#9733;</label>
                     </div>
-            </form>
-        </div>
-
-        <!-- wall area for Comments log -->
-        <div class="msg-comment-log">
-            {% for review in reviews %}
-                <div class="messages">
-                    <p class="user">{{review.user.first_name}} {{review.user.last_name}} - {{review.created_at}}</p>
-                    <p class="message-log">{{review.content}}</p>
-                    <div class="comments">
-                        {% for comment in review.comments.all %}
-                            <p class="user-1">{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.created_at}}</p>
-                            <p class="comment-log">{{comment.content}}</p>
-                        {% endfor %}
-                    </div>
-                    
-                    <div class="comment-box">
-                        <form action="/comment/{{review.id}}"  method="POST">
-                            {% csrf_token %}
-                            <h3>Post a comment</h3>
-                            <textarea class="textarea-2"  name="comment"  id="comment" placeholder="post a comment..."></textarea><span><a href="/wall/comment/delete/{{comment.id}}">delete comment</a></span>
-                            <div class="submit-2"><input class="button-2" type="submit" value="Post a comment"></div>
-                        </form>
+                    <div class="ended">
+                        <input class="button" type="submit" value="Post a message">
                     </div>
                 </div>
-            {% endfor %}
+            </form>
         </div>
-    </div>  
+        
+        <!-- wall area for Comments log -->
+        <main class="l-card">
+            {%for review in reviews%}
+                <section class="l-card__text">
+                    <h4>{{review.user.first_name}} {{review.user.last_name}} - {{review.updated_at}}</h4>
+                    
+                    <p>
+                        {{review.content}}
+                    </p>
+                    {%for comment in review.comments.all%}
+                        <h6>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.updated_at}}</h6>
+                        <h6>{{comment.content}}</h6>
+                        
+                    {%endfor%}
+                </section>
+                <form action="/comment/{{review.id}}" method="post">
+                    {% csrf_token %}
+                    <textarea name="content" id="content" rows="5" cols="60"></textarea><br>
+                    <input type="submit" value="Post a comment">
+                </form>
+            {%endfor%}
+            
+<script src="{% static 'script.js' %}"></script>
+
 </body>
 </html>
-
-
-
