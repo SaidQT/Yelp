@@ -1,16 +1,24 @@
 /* Reset some basic elements */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 body, html, .message-div, .textarea {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-nav{
+header {
     margin: 0;
     display: flex;
     justify-content: center;
     font-size: x-large;
     height: 50px;
+    display: flex;
+    align-items: center;
     transition: 0.5s;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -21,12 +29,29 @@ nav{
     padding-top: 10px;
     background: #201d20;
 }
-nav a{
-    text-decoration: none;
+
+
+header div a {
+    color: whitesmoke;
     margin-right: 5px;
     padding: 5px 10px;
     transition: 0.2s;
-    color:whitesmoke;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+header a {
+    color: whitesmoke;
+    margin-right: 5px;
+    padding: 5px 10px;
+    transition: 0.2s;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+
+a {
+    text-decoration: none;
 }
 
 .textarea {
@@ -168,4 +193,52 @@ input[type="submit"]{
 .sec2{
     display: flex;
     justify-content: space-evenly;
+    height: 150vh;
+    /* height: 100%; */
+}
+
+footer {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    background-color: #2d2e33;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    /* Fixed position */
+    bottom: 0;
+    /* margin-top: 20px; */
+}
+
+
+.footer-col {
+    width: 35%;
+}
+
+.footer-col h4 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 22px;
+    color: #bdb6b6;
+    text-transform: capitalize;
+}
+
+
+
+
+.links a {
+    display: inline-block;
+    color: #bdb6b6;
+    margin: 0 20px 20px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: white;
+    padding-left: 2px;
 }
