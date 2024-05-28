@@ -1,20 +1,23 @@
-*{
+* {
      margin: 0;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
      display: flex;
      justify-content: center;
+     height: 100vh;
 }
 
 .left {
      width: 400px;
      padding: 20px;
 }
+
 .left p {
      margin-top: 20px;
 }
+
 .left img {
      width: 400px;
      margin-top: 20px;
@@ -84,15 +87,13 @@ header {
 }
 
 
-a {
-     text-decoration: none;
-}
-
 header div a {
      color: whitesmoke;
      margin-right: 5px;
      padding: 5px 10px;
      transition: 0.2s;
+     text-decoration: none;
+     border-radius: 2px;
 }
 
 header a {
@@ -100,12 +101,14 @@ header a {
      margin-right: 5px;
      padding: 5px 10px;
      transition: 0.2s;
-}
-
-a {
+     text-decoration: none;
      border-radius: 2px;
 }
 
+
+a {
+     text-decoration: none;
+}
 
 footer {
      border-top-left-radius: 15px;
@@ -114,11 +117,12 @@ footer {
      background-color: #2d2e33;
      justify-content: center;
      align-items: center;
+     width: 100%;
+     position: fixed;
+     /* Fixed position */
+     bottom: 0;
 }
 
-ul {
-     list-style: none;
-}
 
 .footer-col {
      width: 35%;
