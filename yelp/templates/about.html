@@ -1,170 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        nav {
-    margin-bottom: 20px;
-    text-align: center;
-    background-color: #343a40 ;
-    padding-bottom: 40px;
-    display: flex;
-    justify-content: center;
-}
-
-nav a {
-    text-decoration: none;
-    font-size: large;
-    margin: 10px 10px;
-    margin-top: 45px;
-    color:white;
-    display: block;
-
-}
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .head {
-            text-align: center;
-            color: #333;
-            margin-top: 80px;
-            margin-bottom: 25px;
-        }
-        .container_about {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .card {
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
-            width: 300px;
-            text-align: center;
-        }
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .card p {
-            padding: 15px;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        nav {
-        margin-bottom: 20px;
-        text-align: center;
-        background-color: #343a40 ;
-        padding-bottom: 40px;
-        display: flex;
-        justify-content: center;
-}
-.mission {
-    padding: 120px;
-    width: 100%;
-    height: 500px;
-    text-align: start;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("https://fasterlines.com/wp-content/uploads/2023/07/Lifetime-value-for-every-customer.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 auto;
-    margin-top: 90px;
-    color: white;
-    position: relative; 
-    font-size: larger;
-}
-.mission p {
-    margin-top: 50px;
-    font-size: 18px; 
-    line-height: 1.6; 
-    padding: 20px; 
-}
-.mission h1 {
-    text-align: center;
-    margin-top: -50px;
-    margin-bottom: 30px;
-}
-.footer {
-    background-color: #343a40;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 311px;
-}
-.container{
-    
-}
-
-    </style>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style7.css' %}">
 </head>
+
 <body>
-    <div class="main">
-        <nav>
-            <a href="#">Home</a>
+    <header>
+        <nav id="navbar">
+            <a href="/">Home</a>
             <a href="/about">About</a>
-            <a href="#">Services</a>
-            <a href="/contact">Contact</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact Us</a>
         </nav>
-    
+        <div>
+            {% if 'userid' in request.session%}
+            <a href="/logoff"> Logoff </a>
+            {%else%}
+            <a href='/login'>Login/Signup</a>
+            {%endif%}
+        </div>
+    </header>
+    <div class="main">
+
         <h1 class="head">Meet the Team</h1>
-    <div class="container_about">
-        <div class="card">
-            <img src="https://cdn.discordapp.com/attachments/1230116407635742771/1244998873194172458/IMG_20230418_120741.jpg?ex=6657270e&is=6655d58e&hm=85eb337637dab2dbb335cd969e4dcb842960ab7651cd2475061668d31f595b02&" alt="Team Member 1">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores! Impedit officiis cum non?</p>
+        <div class="container_about">
+            <div class="card">
+                <img src="https://cdn.discordapp.com/attachments/1230116407635742771/1244998873194172458/IMG_20230418_120741.jpg?ex=6657270e&is=6655d58e&hm=85eb337637dab2dbb335cd969e4dcb842960ab7651cd2475061668d31f595b02&"
+                    alt="Team Member 1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam
+                    aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores!
+                    Impedit officiis cum non?</p>
+            </div>
+            <div class="card">
+                <img src="https://media.licdn.com/dms/image/D4E03AQEKGJDa9jZCrA/profile-displayphoto-shrink_800_800/0/1684603237772?e=1722470400&v=beta&t=L2CSccyIfaKKTsj093kNqZnMKBbLGXYvVzklz2XLA_U"
+                    alt="Team Member 2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam
+                    aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores!
+                    Impedit officiis cum non?</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.discordapp.com/attachments/1230116407635742771/1245049882205491242/20240528_192312.jpg?ex=6657568f&is=6656050f&hm=454047034b717b34b06171ac4ed42426d3356b8d14da3fe695f739151e7f51c6&"
+                    alt="Team Member 3">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam
+                    aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores!
+                    Impedit officiis cum non?</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.discordapp.com/attachments/1237274618893439038/1245049269304692796/girl.PNG?ex=665755fd&is=6656047d&hm=82d4afd8d520cada84df4e61af40a4ea86b4637328b9abd661a8c8ae8e1f2d92&"
+                    alt="Team Member 4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam
+                    aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores!
+                    Impedit officiis cum non?</p>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://media.licdn.com/dms/image/D4E03AQEKGJDa9jZCrA/profile-displayphoto-shrink_800_800/0/1684603237772?e=1722470400&v=beta&t=L2CSccyIfaKKTsj093kNqZnMKBbLGXYvVzklz2XLA_U" alt="Team Member 2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores! Impedit officiis cum non?</p>
-        </div>
-        <div class="card">
-            <img src="https://cdn.discordapp.com/attachments/1230116407635742771/1245049882205491242/20240528_192312.jpg?ex=6657568f&is=6656050f&hm=454047034b717b34b06171ac4ed42426d3356b8d14da3fe695f739151e7f51c6&" alt="Team Member 3">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores! Impedit officiis cum non?</p>
-        </div>
-        <div class="card">
-            <img src="https://cdn.discordapp.com/attachments/1237274618893439038/1245049269304692796/girl.PNG?ex=665755fd&is=6656047d&hm=82d4afd8d520cada84df4e61af40a4ea86b4637328b9abd661a8c8ae8e1f2d92&" alt="Team Member 4">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quias facilis, error nam eum magni quisquam aliquid nostrum quas odio quam quidem sapiente vel atque, distinctio libero cupiditate dolores! Impedit officiis cum non?</p>
+        <div class="mission">
+            <h1> Our Mission </h1>
+            <p> At Yelp Palestine our mission is to connect people with exceptional local experiences that enrich their
+                lives and empower communities. We strive to provide a platform where individuals can discover and
+                celebrate the best of what their neighborhoods have to offer, from beloved eateries to hidden gems.
+                Through our commitment to authenticity, transparency, and inclusivity, we aim to foster a vibrant
+                ecosystem where businesses thrive, customers find joy, and communities flourish. Together, we're
+                building more than just a directory – we're creating meaningful connections that inspire exploration,
+                support local economies, and shape memorable experiences for generations to come. </p>
         </div>
     </div>
-    <div class="mission">
-        <h1> Our Mission </h1>
-        <p> At Yelp Palestine our mission is to connect people with exceptional local experiences that enrich their lives and empower communities. We strive to provide a platform where individuals can discover and celebrate the best of what their neighborhoods have to offer, from beloved eateries to hidden gems. Through our commitment to authenticity, transparency, and inclusivity, we aim to foster a vibrant ecosystem where businesses thrive, customers find joy, and communities flourish. Together, we're building more than just a directory – we're creating meaningful connections that inspire exploration, support local economies, and shape memorable experiences for generations to come.  </p>
-    </div>
-    </div>
-    
-    <footer class="footer">
-        <div class="container">
-            <p>© 2024 Your Company. All rights reserved.</p>
-            <p>
-                <a href="#" class="text-white me-4">Privacy Policy</a>
-                <a href="#" class="text-white">Terms of Service</a>
-            </p>
+
+    <footer>
+
+        </div>
+        <div class="footer-col">
+            <h4>company</h4>
+            <div class="links">
+                <a href="/services">Services</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="links">
+                <a href="#">Facebook</a>
+                <a href="#">github</a>
+            </div>
         </div>
     </footer>
-    </div>
-    
+
+
 </body>
+
 </html>
