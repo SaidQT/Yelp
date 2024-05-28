@@ -382,7 +382,6 @@ header a:hover {
 .card {
      width: 250px;
      background: white;
-     padding: .7em;
      border-radius: 6px;
      border: 1px gray solid;
      height: 250px;
@@ -526,5 +525,6 @@ ul {
      padding: 20px;
  }
 .card-image img{
-     width:120px;
+     width:250px;
+     height: 140px;
 }
