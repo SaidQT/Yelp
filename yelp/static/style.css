@@ -525,4 +525,6 @@ ul {
      box-shadow: 1px 1px 1px 1px black;
      padding: 20px;
  }
-
+.card-image img{
+     width:120px;
+}

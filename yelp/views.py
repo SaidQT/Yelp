@@ -6,7 +6,7 @@ import bcrypt
 def index(request):
     context={
         "categories": BusinessCategory.objects.all(),
-        "reviews": Review.objects.all().order_by("-created_at")
+        "reviews": Review.objects.all().order_by("-created_at"),
     }
     return render(request, 'index2.html', context)
 
@@ -65,6 +65,7 @@ def show2(request,x,y):
 def review(request, a, b, c):
     business = BusinessDetail.objects.get(id=c)
     request.session['bus'] = business.id
+    request.session['name']=business.name
    
     data = {
         "category1": BusinessCategory.objects.get(id=a),
@@ -82,6 +83,7 @@ def create_review(request):
     if request.method == "POST" and 'userid' in request.session:
         user = User.objects.get(id=request.session['userid'])
         business = BusinessDetail.objects.get(id=request.session['bus'])
+        
         a = request.session['a']
         b = request.session['b']
         c = request.session['c']

@@ -32,6 +32,7 @@
                 {% csrf_token %}
                 <div class="textarea">
                     <h2>Post a review</h2>
+                    <p>You a writing a review for <strong>{{request.session.name}}</strong></p>
                     <textarea name="review" id="message" placeholder="post a review..."></textarea>
                     <div class="star-rating">
                         <input type="radio" name="rating" id="rating-5" value="5">
