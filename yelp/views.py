@@ -94,6 +94,16 @@ def about(request):
 def services(request):
     return render(request,'services.html')
 
+def comment(request,k):
+    if request.method == "POST":
+        Comment.objects.create(
+            content=request.POST['content'],
+            user=User.objects.get(id=request.session['userid']),
+            review=Review.objects.get(id=k),
+        )
+        return redirect('/')
+    
+
 def reset(request):
     request.session.clear()
     return redirect("/")
