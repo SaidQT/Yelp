@@ -8,7 +8,21 @@
     <title>Services Page</title>
 </head>
 <body>
-
+      <header>
+        <nav id="navbar">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div>
+            {% if 'userid' in request.session%}
+                <a href="/logoff"> Logoff </a>
+            {%else%}
+                <a href='/login'>Login/Signup</a>
+            {%endif%}
+        </div>
+    </header>
     <div class="main"></div>
 
     <div class="head">

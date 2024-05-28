@@ -5,7 +5,38 @@
     margin-left: auto;  
     margin-top: 40px; 
 }
+header {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 
+  box-shadow: 5px 4px 3px rgb(252, 252, 252);
+  padding: 20px;
+  font-weight: lighter;
+  padding-top: 10px;
+  background: #201d20;
+}
+header div a {
+  color: whitesmoke;
+  margin-right: 5px;
+  padding: 5px 10px;
+  transition: 0.2s;
+}
+
+header a {
+  color: whitesmoke;
+  margin-right: 5px;
+  padding: 5px 10px;
+  transition: 0.2s;
+  text-decoration: none;
+}
 h1 {
     text-align: center;
 }

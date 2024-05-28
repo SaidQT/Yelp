@@ -67,7 +67,7 @@ def review (request,a,b,c):
     data={
         "category1":BusinessCategory.objects.get(id=a),
         "spec":Speciality.objects.get(id=b),
-        "review":Review.objects.filter(detail=business),
+        "reviews":Review.objects.filter(detail=business),
     }
     if 'userid' in request.session:
         return render(request,"wall.html", data)
@@ -94,6 +94,15 @@ def about(request):
 def services(request):
     return render(request,'services.html')
 
+def comment(request,k):
+    if request.method == "POST":
+        Comment.objects.create(
+            content=request.POST['content'],
+            user=User.objects.get(id=request.session['userid']),
+            review=Review.objects.get(id=k),
+        )
+        return redirect('/')
+    
 def reset(request):
     request.session.clear()
     return redirect("/")
