@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h5 >{{ item.name }}</h5>
                     <h5>Phone: {{item.phone}}</h5>
-                    <button><a href="#" class="text-decoration-none">Post a Review!</a></button>
+                    <button><a href="/category/{{item.speciality.category.id}}/{{item.speciality.id}}/{{item.id}}" class="text-decoration-none">Post a Review!</a></button>
                 </div>
             </div>
         {% endfor %}

@@ -36,9 +36,9 @@ def login(request):
         logged_email = email[0] 
         if bcrypt.checkpw(request.POST['password'].encode(), logged_email.password.encode()):
             request.session['userid'] = logged_email.id
-            return redirect('/login')
+            return redirect('/')
     messages.error(request, "The password or email you entered is incorrect",extra_tags="login")
-    return redirect("/")
+    return redirect("/login")
 
 def log(request):
     return render(request,'login.html')
@@ -61,6 +61,30 @@ def show2(request,x,y):
     return render(request,"business.html",data)
 
 
+def review (request,a,b,c):
+    business=BusinessDetail.objects.get(id=c)
+    request.session['bus']=business.id
+    data={
+        "category1":BusinessCategory.objects.get(id=a),
+        "spec":Speciality.objects.get(id=b),
+        "review":Review.objects.filter(detail=business),
+    }
+    if 'userid' in request.session:
+        return render(request,"wall.html", data)
+    return redirect(f"/category/{a}/{b}")
+
+def create_review(request):
+    if request.method == "POST" and 'userid' in request.session:
+        Review.objects.create(
+            user=User.objects.get(id=request.session['userid']),
+            detail=BusinessDetail.objects.get(id=request.session['bus']),
+            content=request.POST['review'],
+            rating=request.POST['rating'],
+        )
+        return redirect('/')
+    else:
+        return redirect('/login')
+    
 def reset(request):
     request.session.clear()
     return redirect("/")

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- {%load static%} -->
-    <!-- <link rel="stylesheet" href="{% static 'style.css' %}">  -->
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style7.css' %}">
     <title>Reviews</title>
 </head>
 
@@ -23,11 +23,13 @@
 
         <!-- textarea messages -->
         <div class="message-div">
-            <form action="/wall/messages" method="POST">      
+            <form action="/process3" method="POST">      
                 {% csrf_token %}
                     <div class="textarea">
-                        <h2>Post a message</h2>
-                        <textarea name="message" id="message" placeholder="post a message..."></textarea>
+                        <h2>Post a review</h2>
+                        <textarea name="review" id="message" placeholder="post a review..."></textarea>
+                        <label for "rating">Rating</label>
+                        <input type="number" name="rating" min="1" max="5">
                         <div class="ended"><input class="button" type="submit" value="Post a message"></div>
                     </div>
             </form>
