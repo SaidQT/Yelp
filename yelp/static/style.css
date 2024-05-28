@@ -13,7 +13,7 @@ a {
 }
 
 header {
-     padding-left: 190px;
+     
      font-size: x-large;
      height: 50px;
      display: flex;
@@ -22,11 +22,16 @@ header {
      top: 0;
      z-index: 1000;
      transition: 0.5s;
+     justify-content: center;
+     border-bottom-left-radius: 15px;
+     border-bottom-right-radius: 15px;
 }
 
 header.scrolled {
      background-color: #343a40;
      color: #fff;
+     padding: 10px;
+     padding-top: 8px;
 
 }
 
@@ -422,7 +427,8 @@ header a:hover {
 
 footer {
      display: flex;
-     
+     border-top-left-radius: 15px;
+     border-top-right-radius: 15px;
      background-color: #2d2e33;
      justify-content: center;
 }
@@ -445,27 +451,9 @@ ul {
 }
 
 
-ul li:not(:last-child) {
-     margin-bottom: 20px;
-}
-
-ul li a {
-     
-     font-size: 19px;
-     text-transform: capitalize;
-     color: #bdb6b6;
-     text-decoration: none;
-     transition: 0.4s;
-}
-
-ul li a:hover {
-     color: white;
-     padding-left: 2px;
-}
-
 .links a {
      display: inline-block;
-     color: white;
+     color: #bdb6b6;
      margin: 0 20px 20px 0;
      text-align: center;
      line-height: 44px;
@@ -474,6 +462,6 @@ ul li a:hover {
 }
 
 .links a:hover {
-     color: #4d4f55;
-     background-color: white;
+     color: white;
+     padding-left: 2px;
 }

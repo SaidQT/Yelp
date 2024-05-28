@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     {%load static%}
+     <link rel="stylesheet" href="{% static 'cuntactus.css' %}">
+</head>
+
+<body>
+     <header>
+          <nav id="navbar">
+               <a href="#">Home</a>
+               <a href="#">About</a>
+               <a href="#">Services</a>
+               <a href="#">Contact Us</a>
+          </nav>
+          <div>
+               <a href="/login"> Login / SignUp</a>
+          </div>
+     </header>
+     <div class="container">
+
+
+
+          <div class="left">
+               <h1>Contact Us</h1>
+               <p>Feel free to reach out to us with any questions, concerns, or feedback you may have. Our dedicated
+                    team is here to assist you in any way we can. You can contact us by call, email, or by filling out
+                    the form below. We strive to respond to all inquiries promptly and look forward to hearing from you.
+
+               </p>
+               <!-- <img src="../static/images/contact_us.svg" > -->
+               <img src="{% static 'images/contact_us.svg' %}" alt="contact_us image" />
+          </div>
+          <div class="right">
+
+               <input type="text" name="" placeholder="Your Name">
+               <input type="text" name="" placeholder="Your Email">
+               <input type="text" name="" placeholder="Subject">
+               <textarea name="" rows="20" placeholder="Write Your Message"></textarea>
+               <button>Send a Message</button>
+          </div>
+     </div>
+     <footer>
+
+          </div>
+          <div class="footer-col">
+               <h4>company</h4>
+               <div class="links">
+                    <a href="#">Services</a>
+                    <a href="#">Contact Us</a>
+               </div>
+          </div>
+          <div class="footer-col">
+               <h4>follow us</h4>
+               <div class="links">
+                    <a href="#">Facebook</a>
+                    <a href="#">github</a>
+               </div>
+          </div>
+     </footer>
+
+
+</body>
+
+</html>
