@@ -6,7 +6,7 @@ import bcrypt
 def index(request):
     context={
         "categories": BusinessCategory.objects.all(),
-        "reviews":Review.objects.all().order_by("-updated_at"),
+        "reviews":Review.objects.all().order_by("-created_at"),
     }
     return render(request, 'index2.html', context)
 
