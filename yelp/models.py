@@ -1,5 +1,7 @@
 from django.db import models
+from django import forms
 import re
+   
 
 class UserManager(models.Manager):
     def basic_validator(self, postData):
@@ -21,6 +23,12 @@ class UserManager(models.Manager):
             errors['password']="Passwords don't match"
         return errors
     
+class ContactForm(forms.Form):
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
+    objects=UserManager()
+
+
 class CategoryManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
@@ -84,7 +92,8 @@ class User(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     objects=UserManager()
-    
+
+   
 class BusinessCategory(models.Model):
     name=models.CharField(max_length=45)
     users=models.ForeignKey(User,related_name="categories", on_delete=models.CASCADE)
