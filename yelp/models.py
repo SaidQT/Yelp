@@ -61,6 +61,18 @@ class ReviewManager(models.Manager):
         if len(postData['review']) < 10 :
             errors['review'] = "Content should be at least 10 characters"
         return errors
+    
+class ContactFormManager(models.Manager):
+    def basic_validator(self,postData):
+        errors = {}
+        if len(postData['name']) < 2 :
+            errors['name'] = "Name should be at least 2 characters"
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+        if not EMAIL_REGEX.match(postData['email']):               
+            errors['email'] = "Invalid email address!"
+        if len(postData['subject']) < 10 :
+            errors['subject']= "Phone should be at least 10 characters"
+        return errors
 
         
 class User(models.Model):
@@ -126,8 +138,6 @@ class Comment(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     objects=CommentManager()
-    
-
     
 
 
