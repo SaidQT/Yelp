@@ -16,5 +16,4 @@ urlpatterns = [
     path("services",views.services),
     path('comment/<int:k>', views.comment),
     path('delete/<int:id>',views.del_review),
-    path('edit/<int:id>', views.edit_comment)
 ]

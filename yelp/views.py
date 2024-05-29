@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from . models import *
 from django.contrib import messages
 import bcrypt
+from django.core.mail import send_mail
 
 def index(request):
     context={
@@ -135,9 +136,11 @@ def del_review(request,id):
     c = request.session['c']
     return redirect(f'/category/{a}/{b}/{c}')
     
-def edit_comment(request,id):
-    review_x=Review.objects.get(id=id)
     
+    
+
+
+
 def reset(request):
     request.session.clear()
     return redirect("/")

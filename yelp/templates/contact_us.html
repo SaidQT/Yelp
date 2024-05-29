@@ -40,12 +40,13 @@
                <img src="{% static 'images/contact_us.svg' %}" alt="contact_us image" />
           </div>
           <div class="right">
-
-               <input type="text" name="" placeholder="Your Name">
-               <input type="text" name="" placeholder="Your Email">
-               <input type="text" name="" placeholder="Subject">
-               <textarea name="" rows="20" placeholder="Write Your Message"></textarea>
-               <button>Send a Message</button>
+               <form action="send_email" method="post">
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="text" name="email" placeholder="Your Email">
+                    <input type="text" name="subject" placeholder="Subject">
+                    <textarea name="" rows="20" placeholder="Write Your Message"></textarea>
+                    <button>Send a Message</button>
+               </form>
           </div>
      </div>
      <footer>
