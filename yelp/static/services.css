@@ -110,6 +110,12 @@ header a {
   text-decoration: none;
   border-radius: 2px;
 }
+header a:hover{
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 10px;
+  color: black;
+}
 
 
 a {
