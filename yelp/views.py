@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from . models import *
 from django.contrib import messages
 import bcrypt
-from django.core.mail import send_mail
 
 def index(request):
     context={
@@ -11,6 +10,25 @@ def index(request):
         "reviews": Review.objects.all().order_by("-created_at"),
     }
     return render(request, 'index2.html', context)
+
+
+def get_recent_reviews(request):
+    recent_reviews = Review.objects.order_by('-updated_at')[:10]  
+    
+
+    reviews_data = [{
+        'image_url': review.detail.image_url,
+        'category_name': review.detail.name,
+        'content': review.content,
+        'rating': review.rating,
+        'user_name': f'{review.user.first_name} {review.user.last_name}',
+        'updated_at': review.updated_at.strftime('%Y-%m-%d %H:%M:%S')  
+    } for review in recent_reviews]
+    
+    return JsonResponse({'reviews': reviews_data})
+
+
+
 
 def create(request):
     errors = User.objects.basic_validator(request.POST)
@@ -136,22 +154,6 @@ def del_review(request,id):
     b = request.session['b']
     c = request.session['c']
     return redirect(f'/category/{a}/{b}/{c}')
-
-def get_recent_reviews(request):
-    # Query recent reviews from the database
-    recent_reviews = Review.objects.order_by('-updated_at')[:10]  # Assuming 'updated_at' field represents review timestamp
-    
-    # Serialize reviews into JSON format
-    reviews_data = [{
-        'image_url': review.detail.image_url,
-        'category_name': review.detail.name,
-        'content': review.content,
-        'rating': review.rating,
-        'user_name': f'{review.user.first_name} {review.user.last_name}',
-        'updated_at': review.updated_at.strftime('%Y-%m-%d %H:%M:%S')  # Format the timestamp
-    } for review in recent_reviews]
-    
-    return JsonResponse({'reviews': reviews_data})
 
 def reset(request):
     request.session.clear()

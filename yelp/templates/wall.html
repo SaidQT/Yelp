@@ -70,7 +70,7 @@
                                 {{review.content}}
                             </p>
                             {%if review.user.id == request.session.userid%}
-                                <a href="/delete/{{review.id}}">Delete</a>
+                                <a href="/delete/{{review.id}}" id="del">Delete</a>
                             {%endif%}
                             {%for comment in review.comments.all%}
                                 <h5>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.updated_at}}</h5>
