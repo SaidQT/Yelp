@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style6.css' %}">
+    <link rel="stylesheet" href="{% static 'business.css' %}">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
 </head>
 
@@ -27,48 +27,52 @@
                 {%endif%}
             </div>
         </header>
-        <div class="container_cards">
-            {% for item in business %}
-            <div class="card">
-                <div class="card-body">
-                    {%if not item.image_url%}
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWsvceHkiTX5lSfjxr0hs43QXdJ9S2_Fg06nvqF8wxMw&s"
-                        alt="">
-                    {%else%}
-                    <img src="/static/images/{{ item.image_url }}" alt="">
-                    {%endif%}
 
-                    <div class="text">
-                        <h5>{{ item.name }}</h5>
-                        <h5>Phone: {{item.phone}}</h5>
-                        <button class="butt"><a
-                                href="/category/{{item.speciality.category.id}}/{{item.speciality.id}}/{{item.id}}"
-                                class="text-decoration-none">Post a Review!</a></button>
-                    </div>
-                    
-                </div>
-            </div>
-            {% endfor %}
+        <div class="mission">
+            <h1> Specializes </h1>
+            <p> Refers to the process of focusing on a particular area of study, work, or expertise within a broader
+                field. It involves acquiring in-depth knowledge, skills, and experience in a specific niche or subject
+                matter, often to the exclusion of other areas. Specialization allows individuals or organizations to
+                become highly proficient and efficient in their chosen domain, enabling them to offer specialized
+                services, products, or solutions.</p>
         </div>
+    </div>
+    <div class="container_about">
+        {% for item in business %}
+        <div class="card">
+            <img src="https://cdn.discordapp.com/attachments/1230116407635742771/1245049882205491242/20240528_192312.jpg?ex=6657568f&is=6656050f&hm=454047034b717b34b06171ac4ed42426d3356b8d14da3fe695f739151e7f51c6&"
+                alt="Team Member 1">
+            <div class="insidecard">
+
+                <h3>{{ item.name }}</h3>
+                <h5>Phone: {{item.phone}}</h5>
+                <button class="butt"><a
+                        href="/category/{{item.speciality.category.id}}/{{item.speciality.id}}/{{item.id}}"
+                        class="text-decoration-none">Post a Review!</a></button>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
 
 
     <footer>
 
-    
-    <div class="footer-col">
-        <h4>company</h4>
-        <div class="links">
-            <a href="/services">Services</a>
-            <a href="/contact">Contact Us</a>
+
+        <div class="footer-col">
+            <h4>company</h4>
+            <div class="links">
+                <a href="/services">Services</a>
+                <a href="/contact">Contact Us</a>
+            </div>
         </div>
-    </div>
-    <div class="footer-col">
-        <h4>follow us</h4>
-        <div class="links">
-            <a href="#">Facebook</a>
-            <a href="#">github</a>
+        <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="links">
+                <a href="#">Facebook</a>
+                <a href="#">github</a>
+            </div>
         </div>
-    </div>
     </footer>
 
 
