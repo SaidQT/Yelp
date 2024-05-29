@@ -20,9 +20,6 @@ header {
     display: flex;
     align-items: center;
     transition: 0.5s;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-
     box-shadow: 5px 4px 3px rgb(252, 252, 252);
     padding: 20px;
     font-weight: lighter;
@@ -47,6 +44,12 @@ header a {
     transition: 0.2s;
     text-decoration: none;
     border-radius: 2px;
+}
+header a:hover{
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px black;
+    padding: 10px;
+    color: black;
 }
 
 
@@ -204,7 +207,7 @@ input[type="submit"]{
 }
 .sec2{
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     /* height: 150vh; */
     /* height: 100%; */
 }
@@ -273,4 +276,33 @@ footer {
     background-color: #EF5350;
     color: white;
     padding:3px;
+}
+
+.mission {
+    padding: 100px;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+        url("https://i0.wp.com/blackstormco.asia/wp-content/uploads/2020/03/Mileout_capabilities-1-1600x974.jpg?ssl=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    /* margin-top: 10px; */
+    color: white;
+    position: relative;
+    font-size: larger;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.mission p {
+    margin-top: 50px;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.mission h1 {
+    text-align: center;
+
 }

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Review</title>
-{%load static%}
-<link rel="stylesheet" href="{% static 'style8.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style8.css' %}">
 </head>
+
 <body>
-    
+
     <header>
         <nav id="navbar">
             <a href="/">Home</a>
@@ -25,7 +27,13 @@
         </div>
     </header>
 
-        <div class="container">
+    <div class="mission">
+        <h2> Review </h2>
+        <p> Feel free to share your thoughts, comments, and reviews! Your feedback is valuable and helps us improve.
+            Whether it's a quick comment or <br>a detailed review, your input is always welcome. We appreciate your
+            perspective and look forward to hearing from you!"</p>
+    </div>
+    <div class="container">
         <!-- textarea messages -->
         <div class="message-div">
             <form action="/process3" method="POST">
@@ -52,62 +60,64 @@
                 </div>
             </form>
             {% for message in messages %}
-                {% if 'rev' in message.tags %}
-                    <div class='msg'>{{ message }}</div>
-                {% endif %}
+            {% if 'rev' in message.tags %}
+            <div class='msg'>{{ message }}</div>
+            {% endif %}
             {% endfor %}
         </div>
-        
+
         <div class="sec2">
             <div class="sec2first">
                 <main class="l-card">
                     {%for review in reviews%}
-                        <section class="l-card__text">
-                            <h4>{{review.user.first_name}} {{review.user.last_name}} - {{review.updated_at}}</h4>
-                                <h4><em>Rating: <span class="rate">{{review.rating}}</em></span></h4>
-                            
-                            <p>
-                                {{review.content}}
-                            </p>
-                            {%if review.user.id == request.session.userid%}
-                                <a href="/delete/{{review.id}}" id="del">Delete</a>
-                            {%endif%}
-                            {%for comment in review.comments.all%}
-                                <h5>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.updated_at}}</h5>
-                                <h5>{{comment.content}}</h5>
-                                
-                            {%endfor%}
-                        </section>
-                        <form action="/comment/{{review.id}}" method="post">
-                            {% csrf_token %}
-                            <textarea name="content" id="content" rows="5" cols="60"></textarea><br>
-                            <input type="submit" value="Post a comment">
-                            {% for message in messages %}
-				        {% if 'com' in message.tags %}
-					        <div class='msg'>{{ message }}</div>
-				        {% endif %}
-			            {% endfor %}
-                        </form>
+                    <section class="l-card__text">
+                        <h4>{{review.user.first_name}} {{review.user.last_name}} - {{review.updated_at}}</h4>
+                        <h4><em>Rating: <span class="rate">{{review.rating}}</em></span></h4>
+
+                        <p>
+                            {{review.content}}
+                        </p>
+                        {%if review.user.id == request.session.userid%}
+                        <a href="/delete/{{review.id}}" id="del">Delete</a>
+                        {%endif%}
+                        {%for comment in review.comments.all%}
+                        <h5>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.updated_at}}</h5>
+                        <h5>{{comment.content}}</h5>
+
+                        {%endfor%}
+                    </section>
+                    <form action="/comment/{{review.id}}" method="post">
+                        {% csrf_token %}
+                        <textarea name="content" id="content" rows="5" cols="60"></textarea><br>
+                        <input type="submit" value="Post a comment">
+                        {% for message in messages %}
+                        {% if 'com' in message.tags %}
+                        <div class='msg'>{{ message }}</div>
+                        {% endif %}
+                        {% endfor %}
+                    </form>
                     {%endfor%}
+            </div>
+
+
+            <div class="sec2-sec">
+                <div class="cta-card">
+                    <img src="https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE="
+                        alt="Our Team" class="cta-image">
+                    <div class="cta-text">
+                        <h2>Meet Our Team</h2>
+                        <p>Get to know the people behind Yelp Palestine and learn about their passions and expertise.
+                        </p>
+                        <button class="cta-button"><a href="/about">Learn More</a></button>
+                    </div>
+
                 </div>
-                
-        
-        <div class="sec2-sec">
-                    <div class="cta-card">
-                        <img src="https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE=" alt="Our Team" class="cta-image">
-                        <div class="cta-text">
-                            <h2>Meet Our Team</h2>
-                            <p>Get to know the people behind Yelp Palestine and learn about their passions and expertise.</p>
-                            <button class="cta-button"><a href="/about">Learn More</a></button>
-                        </div>
-                    
             </div>
         </div>
     </div>
-    </div>
     <footer>
 
-    
+
         <div class="footer-col">
             <h4>company</h4>
             <div class="links">
@@ -122,9 +132,10 @@
                 <a href="#">github</a>
             </div>
         </div>
-        </footer>
+    </footer>
 
-<script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
 
 </body>
+
 </html>
