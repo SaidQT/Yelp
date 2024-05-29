@@ -33,7 +33,7 @@
                 <div class="textarea">
                     <h2>Post a review</h2>
                     <p>You a writing a review for <strong>{{request.session.name}}</strong></p>
-                    <textarea name="review" id="message" placeholder="post a review..."></textarea>
+                    <textarea name="review" id="message" placeholder="Post a review..."></textarea>
                     <div class="star-rating">
                         <input type="radio" name="rating" id="rating-5" value="5">
                         <label for="rating-5" title="5 stars">&#9733;</label>
@@ -51,6 +51,11 @@
                     </div>
                 </div>
             </form>
+            {% for message in messages %}
+                {% if 'rev' in message.tags %}
+                    <div class='msg'>{{ message }}</div>
+                {% endif %}
+            {% endfor %}
         </div>
         
         <div class="sec2">
@@ -64,6 +69,9 @@
                             <p>
                                 {{review.content}}
                             </p>
+                            {%if review.user.id == request.session.userid%}
+                                <a href="/delete/{{review.id}}">Delete</a>
+                            {%endif%}
                             {%for comment in review.comments.all%}
                                 <h5>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.updated_at}}</h5>
                                 <h5>{{comment.content}}</h5>
@@ -74,9 +82,15 @@
                             {% csrf_token %}
                             <textarea name="content" id="content" rows="5" cols="60"></textarea><br>
                             <input type="submit" value="Post a comment">
+                            {% for message in messages %}
+				        {% if 'com' in message.tags %}
+					        <div class='msg'>{{ message }}</div>
+				        {% endif %}
+			            {% endfor %}
                         </form>
                     {%endfor%}
                 </div>
+                
         
         <div class="sec2-sec">
                     <div class="cta-card">
