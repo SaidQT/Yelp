@@ -124,7 +124,7 @@ def review(request, a, b, c):
     request.session['c'] = c
     if 'userid' in request.session:
         return render(request, "wall.html", data)
-    return redirect(f"/category/{a}/{b}")
+    return redirect(f"/login")
 
 def create_review(request):
     if request.method == "POST" and 'userid' in request.session:
@@ -185,18 +185,16 @@ def del_review(request,id):
 
 
 def get_recent_reviews(request):
-    # Query recent reviews from the database
+
     recent_reviews = Review.objects.order_by('-updated_at')[:10] 
-    # Assuming 'updated_at' field represents review timestamp
     
-    # Serialize reviews into JSON format
     reviews_data = [{
         'image_url': review.detail.image_url,
         'category_name': review.detail.name,
         'content': review.content,
         'rating': review.rating,
         'user_name': f'{review.user.first_name} {review.user.last_name}',
-        'updated_at': review.updated_at.strftime('%Y-%m-%d %H:%M:%S')  # Format the timestamp
+        'updated_at': review.updated_at.strftime('%Y-%m-%d %H:%M:%S')  
     } for review in recent_reviews]
     
     return JsonResponse({'reviews': reviews_data})
