@@ -424,8 +424,11 @@ header a:hover {
      padding-top: 20px;
 }
 
+#recentReviews{
+     display: flex;
+     flex-wrap: wrap;
 
-
+}
 
 footer {
      display: flex;

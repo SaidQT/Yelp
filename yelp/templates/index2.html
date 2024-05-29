@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yelp homepage</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
     {%load static%}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
@@ -35,9 +34,8 @@
                 <img src="{{ category.image_url }}" alt="{{category.name}}" />
                 <div class="content">
                     <div class="title"></div>
-                    <div class="type">{{category.name}}</div><!-- take int from database-->
+                    <div class="type">{{category.name}}</div>
                     <div class="description">
-                        <!--take it from data base  -->
                     </div>
                     <div class="button">
                         <button><a href="category/{{category.id}}">SEE MORE</a></button>
@@ -71,21 +69,8 @@
     <h3 id="mostrecent"> Most recent </h3>
     
     <div class="page2">
-        {% for review in reviews %}
-        {% if forloop.counter <= 10 %}
-            <div class="card">
-                <div class="card-image">
-                    <img src="/static/images/{{review.detail.image_url}}" alt="batata">
-                </div>
-                <div class="category"> {{ review.detail.name }} </div>
-                <div class="des"> <p>{{ review.content }}</p>
-                    <p><strong>Rating:<span style="color:red">{{review.rating}}</span></strong></p>
-                    <div class="user"> <p>By {{ review.user.first_name }} {{ review.user.last_name }} {{ review.updated_at }}</p></div>
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-    
+        <div id="recentReviews">
+        </div>
     </div>
     <div class="cta-card">
         <img src="/static/images/C:\Users\Admin\Desktop\Yelp\yelp\static\images\istockphoto-1346944001-612x612.jpg" alt="Our Team" class="cta-image">
@@ -94,7 +79,8 @@
             <p>Get to know the people behind Yelp Palestine and learn about their passions and expertise.</p>
             <button class="cta-button"><a href="/about">About Us</a></button>
         </div>
-    </div>
+    </div>]
+
     <footer>
 
         </div>
@@ -118,6 +104,40 @@
 </body>
 
 <script src="{% static 'script.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '{% url 'get_recent_reviews' %}',
+            type: 'GET',
+            success: function(response) {
+                var reviewsContainer = $('#recentReviews');
+                $.each(response.reviews, function(index, review) {
+                    var reviewHtml = `
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="${review.image_url}" alt="Review Image">
+                            </div>
+                            <div class="category">${review.category_name}</div>
+                            <div class="des">
+                                <p>${review.content}</p>
+                                <p><strong>Rating:</strong> <span style="color:red">${review.rating}</span></p>
+                                <div class="user">
+                                    <p>By ${review.user_name} | ${review.updated_at}</p>
+                                </div>
+                            </div>
+                        </div>`;
+                    reviewsContainer.append(reviewHtml);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching recent reviews:', error);
+            }
+        });
+    });
+</script>
+
+
 </body>
 
 </html>
