@@ -11,8 +11,6 @@ header {
      font-size: x-large;
      height: 50px;
      transition: 0.5s;
-     border-bottom-left-radius: 15px;
-     border-bottom-right-radius: 15px;
      align-items: center;
      box-shadow: 5px 4px 3px rgb(252, 252, 252);
      padding: 20px;
@@ -39,6 +37,12 @@ header a {
      transition: 0.2s;
      text-decoration: none;
      border-radius: 2px;
+}
+header a:hover{
+     background-color: white;
+     box-shadow: 1px 1px 1px 1px black;
+     padding: 10px;
+     color: black;
 }
 
 
@@ -106,7 +110,6 @@ a {
      color: white;
      position: relative;
      font-size: larger;
-     border-radius: 15px 15px 0px 0px;
 }
 
 .mission > p {
