@@ -186,7 +186,7 @@ def del_review(request,id):
 
 def get_recent_reviews(request):
 
-    recent_reviews = Review.objects.order_by('-updated_at')[:10] 
+    recent_reviews = Review.objects.order_by('-updated_at')[:8] 
     
     reviews_data = [{
         'image_url': review.detail.image_url,
