@@ -79,7 +79,8 @@
                 </div>
                 <div class="category"> {{ review.detail.name }} </div>
                 <div class="des"> <p>{{ review.content }}</p>
-                    <div class="user"> By {{ review.user.first_name }} {{ review.user.last_name }} {{ review.updated_at }}</div>
+                    <p><strong>Rating:<span style="color:red">{{review.rating}}</span></strong></p>
+                    <div class="user"> <p>By {{ review.user.first_name }} {{ review.user.last_name }} {{ review.updated_at }}</p></div>
                 </div>
             </div>
         {% endif %}

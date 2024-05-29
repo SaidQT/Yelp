@@ -385,8 +385,9 @@ header a:hover {
      padding: .7em;
      border-radius: 6px;
      border: 1px gray solid;
-     height: 250px;
+     height: auto;
      margin: 13px;
+
 }
 
 .card-image {
@@ -423,6 +424,8 @@ header a:hover {
      font-size: 11px;
      padding-top: 20px;
 }
+
+
 
 
 footer {

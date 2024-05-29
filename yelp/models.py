@@ -52,16 +52,14 @@ class CommentManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
         if len(postData['content']) < 4:
-            errors['content'] = "Content should be at least 10 characters"
+            errors['content'] = "Content should be at least 4 characters"
         return errors
     
 class ReviewManager(models.Manager):
     def basic_validator(self, postData):
         errors = {}
-        if len(postData['content']) < 10 :
-            errors['content'] = "Rating should be at least 5 characters"
-        if len(postData['rating']) < 1 :
-            errors['rating'] = "Rating should be at least 1 character"
+        if len(postData['review']) < 10 :
+            errors['review'] = "Content should be at least 10 characters"
         return errors
 
         

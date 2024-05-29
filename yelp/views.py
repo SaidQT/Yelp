@@ -66,7 +66,6 @@ def review(request, a, b, c):
     business = BusinessDetail.objects.get(id=c)
     request.session['bus'] = business.id
     request.session['name']=business.name
-   
     data = {
         "category1": BusinessCategory.objects.get(id=a),
         "spec": Speciality.objects.get(id=b),
@@ -87,16 +86,19 @@ def create_review(request):
         a = request.session['a']
         b = request.session['b']
         c = request.session['c']
-        
-        Review.objects.create(
-            user=user,
-            detail=business,
-            content=request.POST['review'],
-            rating=request.POST['rating'],
-        )
-        return redirect(f'/category/{a}/{b}/{c}')
-    else:
-        return redirect('/login')
+        errors = Review.objects.basic_validator(request.POST)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value,extra_tags="rev")
+                return redirect(f'/category/{a}/{b}/{c}')
+        else:
+            Review.objects.create(
+                user=user,
+                detail=business,
+                content=request.POST['review'],
+                rating=request.POST['rating'],
+            )
+            return redirect(f'/category/{a}/{b}/{c}')
 
 def contact(request):
     return render(request,"contact_us.html")
@@ -109,17 +111,33 @@ def services(request):
 
 def comment(request,k):
     if request.method == "POST":
+        errors = Comment.objects.basic_validator(request.POST)
+        a = request.session['a']
+        b = request.session['b']
+        c = request.session['c']
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value,extra_tags="com")
+                return redirect(f'/category/{a}/{b}/{c}')
         Comment.objects.create(
             content=request.POST['content'],
             user=User.objects.get(id=request.session['userid']),
             review=Review.objects.get(id=k),
         )
-        a = request.session['a']
-        b = request.session['b']
-        c = request.session['c']
+    
         return redirect(f'/category/{a}/{b}/{c}')
     
-
+def del_review(request,id):
+    review_x=Review.objects.get(id=id)
+    review_x.delete()
+    a = request.session['a']
+    b = request.session['b']
+    c = request.session['c']
+    return redirect(f'/category/{a}/{b}/{c}')
+    
+def edit_comment(request,id):
+    review_x=Review.objects.get(id=id)
+    
 def reset(request):
     request.session.clear()
     return redirect("/")
