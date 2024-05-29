@@ -375,19 +375,29 @@ header a:hover {
      flex-wrap: wrap;
      /* align-items: center; */
      /* margin: 0;  */
-     width: 100%;
+     width: 60%;
      height: 100%;
+     flex-wrap: wrap;
+     margin: 0 auto;
 }
 
 .card {
-     width: 250px;
-     background: white;
-     border-radius: 6px;
-     border: 1px gray solid;
-     height: auto;
-     margin: 13px;
+     background-color: white;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 8px;
+     overflow: hidden;
+     transition: transform 0.2s, box-shadow 0.2s;
+     width: 230px;
+     text-align: center;
+     cursor: pointer;
+     margin: 20px;
+
 
 }
+.card:hover{
+     transform: scale(1.05);
+}
+
 
 .card-image {
      background-color: rgb(236, 236, 236);
@@ -396,16 +406,15 @@ header a:hover {
      border-radius: 6px 6px 0 0;
 }
 
-.card-image:hover {
-     transform: scale(0.98);
-}
+
 
 .category {
      text-transform: uppercase;
      font-size: 0.7em;
      font-weight: 600;
-     color: rgb(63, 121, 230);
+     color: #000;
      padding: 10px 7px 0;
+     margin-top: 15px;
 }
 
 
