@@ -16,4 +16,5 @@ urlpatterns = [
     path("services",views.services),
     path('comment/<int:k>', views.comment),
     path('delete/<int:id>',views.del_review),
+    path('get-recent-reviews/', views.get_recent_reviews, name='get_recent_reviews'),
 ]
