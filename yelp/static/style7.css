@@ -50,7 +50,7 @@ a {
 .head {
      text-align: center;
      color: #333;
-     margin-top: 80px;
+     margin-top: 50px;
      margin-bottom: 25px;
 }
 
@@ -59,6 +59,7 @@ a {
      flex-wrap: wrap;
      justify-content: center;
      gap: 20px;
+     margin-bottom: 40px;
 }
 
 .card {
@@ -98,28 +99,26 @@ a {
      height: 500px;
      text-align: start;
      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("https://fasterlines.com/wp-content/uploads/2023/07/Lifetime-value-for-every-customer.jpg");
+          url("https://cdn.discordapp.com/attachments/1243485223698829312/1245290844894920796/image0.jpg?ex=665836f9&is=6656e579&hm=41892350c969ec8795377f4158719504e8725823c75e2f93f16aba527bc0cecb&");
      background-repeat: no-repeat;
      background-size: cover;
      margin: 0 auto;
-     margin-top: 90px;
      color: white;
      position: relative;
      font-size: larger;
-     border-radius: 15px;
+     border-radius: 15px 15px 0px 0px;
 }
 
-.mission p {
-     margin-top: 50px;
+.mission > p {
      font-size: 18px;
      line-height: 1.6;
      padding: 20px;
 }
 
-.mission h1 {
+
+.mission_header{
      text-align: center;
-     /* margin-top: -50px; */
-     margin-bottom: 30px;
+     padding-top: 140px;
 }
 
 footer {
