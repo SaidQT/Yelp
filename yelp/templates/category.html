@@ -35,7 +35,7 @@
         {% for item in speciality %}
         <div class="card">
                 <a href="/category/{{ item.category.id }}/{{ item.id }}" >
-                <img src="https://cdn.discordapp.com/attachments/1230116407635742771/1245049882205491242/20240528_192312.jpg?ex=6657568f&is=6656050f&hm=454047034b717b34b06171ac4ed42426d3356b8d14da3fe695f739151e7f51c6&"
+                <img src="{{item.image_url}}"
                     alt="category">
                 <div class="insidecard">
                     <h3>{{ item.name }}</h3>
