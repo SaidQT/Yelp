@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style5.css' %}">
+    <link rel="stylesheet" href="{% static 'category.css' %}">
 </head>
 
 <body>
     <header>
         <nav id="navbar">
             <a href="/">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
             <a href="/contact">Contact Us</a>
         </nav>
         <div>
@@ -26,25 +26,35 @@
         </div>
     </header>
 
-    <div class="container cards">
+    <div class="mission">
+        <h1> Specializes </h1>
+        <p> Refers to the process of focusing on a particular area of study, work, or expertise within a broader
+            field. It involves acquiring in-depth knowledge, skills, and experience in a specific niche or subject
+            matter, often to the exclusion of other areas. Specialization allows individuals or organizations to
+            become highly proficient and efficient in their chosen domain, enabling them to offer specialized
+            services, products, or solutions.</p>
+    </div>
+
+    <div class="container_about">
         {% for item in speciality %}
-            <a href="/category/{{ item.category.id }}/{{ item.id }}" class="text-decoration-none">
-                <div class="card" style="width: 250px;">
-                    <img src="/static/images/{{ item.image_url }}" alt="..." class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item.name }}</h5>
-                    </div>
+        <div class="card">
+                <a href="/category/{{ item.category.id }}/{{ item.id }}" >
+                <img src="https://cdn.discordapp.com/attachments/1230116407635742771/1245049882205491242/20240528_192312.jpg?ex=6657568f&is=6656050f&hm=454047034b717b34b06171ac4ed42426d3356b8d14da3fe695f739151e7f51c6&"
+                    alt="category">
+                <div class="insidecard">
+                    <h3>{{ item.name }}</h3>
                 </div>
-            </a>
+            </div>
+        </a>
         {% endfor %}
     </div>
     <footer>
 
-        </div>
+
         <div class="footer-col">
             <h4>company</h4>
             <div class="links">
-                <a href="#">Services</a>
+                <a href="/services">Services</a>
                 <a href="/contact">Contact Us</a>
             </div>
         </div>
