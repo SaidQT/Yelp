@@ -1,9 +1,34 @@
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
-from . models import *
 from django.contrib import messages
-import bcrypt
 from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpRequest
+from . models import *
+import bcrypt
+
+
+def contactus(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = request.POST.get('subject')
+            email = request.POST.get('email')
+            message = request.POST.get('message')
+            name = request.POST.get('name')
+
+            body=f"his name {name}\n his {email} \n his{message}"
+            # Send email notification
+            send_mail(
+                'New message from website contact form',
+                body,
+                email,
+                ['ranni.tawasha@gmail.com'],
+                fail_silently=False,
+            )
+            return render(request, 'contact_success.html')
+    else:
+        form = ContactForm()
+    return render(request, 'contact_us.html', {'form': form})
+
 
 def index(request):
     context={
@@ -139,7 +164,8 @@ def del_review(request,id):
 
 def get_recent_reviews(request):
     # Query recent reviews from the database
-    recent_reviews = Review.objects.order_by('-updated_at')[:10]  # Assuming 'updated_at' field represents review timestamp
+    recent_reviews = Review.objects.order_by('-updated_at')[:10] 
+    # Assuming 'updated_at' field represents review timestamp
     
     # Serialize reviews into JSON format
     reviews_data = [{
