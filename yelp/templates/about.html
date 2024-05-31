@@ -11,12 +11,12 @@
 
 <body>
     <header>
-        <nav id="navbar">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/services">Services</a>
-            <a href="/contact">Contact Us</a>
-        </nav>
+            <nav id="navbar" class="sm4 sm2">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/services">Services</a>
+                <a href="/contact">Contact Us</a>
+            </nav>
         <div>
             {% if 'userid' in request.session%}
             <a href="/logoff"> Logoff </a>
@@ -28,13 +28,8 @@
     <div class="main">
         <div class="mission">
             <h1 class="mission_header"> Our Mission </h1>
-            <p> At Yelp Palestine our mission is to connect people with exceptional local experiences that enrich their
-                lives and empower communities. We strive to provide a platform where individuals can discover and
-                celebrate the best of what their neighborhoods have to offer, from beloved eateries to hidden gems.
-                Through our commitment to authenticity, transparency, and inclusivity, we aim to foster a vibrant
-                ecosystem where businesses thrive, customers find joy, and communities flourish. Together, we're
-                building more than just a directory – we're creating meaningful connections that inspire exploration,
-                support local economies, and shape memorable experiences for generations to come. </p>
+            <p> <strong>At Yelp Palestine our mission is to connect people with exceptional local experiences that enrich their
+                lives and empower communities.</strong> </p>
         </div>
 
         <h1 class="head">Meet the Team</h1>
@@ -85,7 +80,6 @@
             </div>
         </div>
     </footer>
-
 
 </body>
 

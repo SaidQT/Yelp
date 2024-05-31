@@ -2,6 +2,7 @@
      margin: 0;
      padding: 0;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 header {
@@ -100,20 +101,20 @@ a {
 .mission {
      /* padding: 120px; */
      width: 100%;
-     height: 500px;
-     text-align: start;
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("https://cdn.discordapp.com/attachments/1243485223698829312/1245290844894920796/image0.jpg?ex=665836f9&is=6656e579&hm=41892350c969ec8795377f4158719504e8725823c75e2f93f16aba527bc0cecb&");
+     height: 400px;
+     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+          url("https://colibriwp.com/blog/wp-content/uploads/2019/06/pawel-czerwinski-vI5XwPbGvmY-unsplash.jpg");
      background-repeat: no-repeat;
      background-size: cover;
      margin: 0 auto;
      color: white;
      position: relative;
      font-size: larger;
+     text-align: center;
 }
 
 .mission > p {
-     font-size: 18px;
+     font-size: 24px;
      line-height: 1.6;
      padding: 20px;
 }
